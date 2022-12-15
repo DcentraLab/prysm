@@ -25,6 +25,8 @@ RUN mkdir -p /workspace
 
 WORKDIR /workspace
 
+COPY . ./ 
+
 RUN bazel build //cmd/beacon-chain:beacon-chain --config=release
 
 ENTRYPOINT ["bazel","run","//cmd/beacon-chain:beacon-chain","--config=release","--"]
